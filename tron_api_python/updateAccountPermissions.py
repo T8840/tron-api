@@ -4,11 +4,11 @@ from tronapi.transactionbuilderupdate import CustomTransactionBuilder
 from dotenv import dotenv_values
 
 env_values = dotenv_values()
-full_node = env_values["NILE_FULL_NODE"]
+full_node = env_values["MAINNET_FULL_NODE"]
 tron = Tron(full_node=full_node)
 # Use your custom subclass
 tron.transaction_builder = CustomTransactionBuilder(tron)
-default_account_address = "TZ4MRoHMF9zJcj6sdyb6MUhFoFfczSbo3F"
+default_account_address = "TRnYFYxw6WPcwjyfYRF9yXiPMviouhgQPC"
 tron.private_key = env_values["PRIVATE_KEY"]
 tron.default_address = default_account_address
 default_account_address_hex = address_to_hex(default_account_address)
@@ -30,7 +30,8 @@ def update_permissions():
                 [{
                     'type': 2,
                     'permission_name': 'active',
-                    'operations': '7fff1fc0033efb0f000000000000000000000000000000000000000000000000',
+                    'operations': '7fff1fc0033ec30f000000000000000000000000000000000000000000000000',
+                    'id':2,          
                     'threshold': 2,
                     'keys': [
                         {'address': default_account_address_hex, 'weight': 1},

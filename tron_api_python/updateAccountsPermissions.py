@@ -12,7 +12,7 @@ def read_csv(filename="./accounts.csv"):
         return list(reader)
 
 env_values = dotenv_values()
-full_node = env_values["NILE_FULL_NODE"]
+full_node = env_values["MAINNET_FULL_NODE"]
 tron = Tron(full_node=full_node)
 tron.transaction_builder = CustomTransactionBuilder(tron)
 signer_account_address = "TU5TveGxpSKGK56koNZPuFBXyqvQayVZ8s"
@@ -37,7 +37,8 @@ def update_permissions(default_address, private_key):
                 {
                     'type': 2,
                     'permission_name': 'active',
-                    'operations': '7fff1fc0033efb0f000000000000000000000000000000000000000000000000',
+                    'operations': '7fff1fc0033ec30f000000000000000000000000000000000000000000000000',
+                    'id':2,      
                     'threshold': 2,
                     'keys': [
                         {'address': default_account_address_hex, 'weight': 1},
